@@ -1,0 +1,4 @@
+services:
+  lifeless-proxy:
+    build: .
+    restart: unless-stopped
