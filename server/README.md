@@ -1,13 +1,36 @@
-# Lifeless Proxy Server
+# LIFELESS PROXY
 
-This directory contains the server-side components of Lifeless Proxy.
+A security-focused, self-hosted proxy management project with a
+dark-red administration interface and automated short-lived credential
+rotation.
 
-Planned components:
+## Features
 
+- Dark-red administration dashboard
 - Authentication
-- Session management
-- Credential generation
-- Credential rotation
+- Short-lived credentials
+- Automated credential rotation
 - Credential expiration
+- Credential revocation
+- Rate limiting
 - Audit logging
-- Proxy service integration
+- Docker support
+- Automated GitHub checks
+
+## Security
+
+Lifeless Proxy is intended for infrastructure and network services
+that you own or are authorized to administer.
+
+Never commit production credentials to this repository.
+
+See [Security](docs/security.md) for more information.
+
+## Project structure
+
+```text
+server/       Server components
+web/          Web interface
+tests/        Automated tests
+docs/         Documentation
+.github/      GitHub automation
