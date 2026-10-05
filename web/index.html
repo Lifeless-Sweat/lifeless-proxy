@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifeless Proxy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <div class="logo">LP</div>
+
+            <div>
+                <h1>LIFELESS PROXY</h1>
+                <p class="subtitle">SECURE PROXY MANAGEMENT</p>
+            </div>
+        </header>
+
+        <section class="status-card">
+            <div>
+                <span class="status-dot"></span>
+                <span>SYSTEM ONLINE</span>
+            </div>
+
+            <div class="status-time">
+                Credential status:
+                <strong>ACTIVE</strong>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>ACCESS CREDENTIAL</h2>
+
+            <div class="credential">
+                <span id="credential">
+                    ••••••••••••••••••••••
+                </span>
+
+                <button onclick="revealCredential()">
+                    REVEAL
+                </button>
+            </div>
+
+            <div class="expiration">
+                <span>EXPIRES IN</span>
+                <strong id="countdown">24:00:00</strong>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>SECURITY</h2>
+
+            <div class="security-row">
+                <span>Authentication</span>
+                <strong>ENABLED</strong>
+            </div>
+
+            <div class="security-row">
+                <span>Credential rotation</span>
+                <strong>DAILY</strong>
+            </div>
+
+            <div class="security-row">
+                <span>Transport security</span>
+                <strong>HTTPS</strong>
+            </div>
+        </section>
+
+        <footer>
+            LIFELESS PROXY · ADMINISTRATION PANEL
+        </footer>
+    </main>
+
+    <script>
+        function revealCredential() {
+            const credential = document.getElementById("credential");
+
+            if (credential.textContent.includes("•")) {
+                credential.textContent = "CREDENTIAL-HIDDEN";
+            } else {
+                credential.textContent = "••••••••••••••••••••••";
+            }
+        }
+    </script>
+</body>
+</html>
