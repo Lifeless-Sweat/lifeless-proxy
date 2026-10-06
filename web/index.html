@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Lifeless Proxy secure proxy management dashboard"
+    >
+
     <title>Lifeless Proxy</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <main class="container">
-        <header>
+
+        <header class="header">
             <div class="logo">LP</div>
 
             <div>
@@ -19,7 +27,7 @@
         </header>
 
         <section class="status-card">
-            <div>
+            <div class="status">
                 <span class="status-dot"></span>
                 <span>SYSTEM ONLINE</span>
             </div>
@@ -31,26 +39,35 @@
         </section>
 
         <section class="panel">
-            <h2>ACCESS CREDENTIAL</h2>
+            <div class="panel-header">
+                <h2>ACCESS CREDENTIAL</h2>
+                <span class="badge">ROTATING DAILY</span>
+            </div>
 
             <div class="credential">
-                <span id="credential">
+                <code id="credential">
                     ••••••••••••••••••••••
-                </span>
+                </code>
 
-                <button onclick="revealCredential()">
+                <button
+                    id="revealButton"
+                    type="button"
+                >
                     REVEAL
                 </button>
             </div>
 
             <div class="expiration">
                 <span>EXPIRES IN</span>
-                <strong id="countdown">24:00:00</strong>
+                <strong id="countdown">--:--:--</strong>
             </div>
         </section>
 
         <section class="panel">
-            <h2>SECURITY</h2>
+            <div class="panel-header">
+                <h2>SECURITY</h2>
+                <span class="badge">PROTECTED</span>
+            </div>
 
             <div class="security-row">
                 <span>Authentication</span>
@@ -66,23 +83,41 @@
                 <span>Transport security</span>
                 <strong>HTTPS</strong>
             </div>
+
+            <div class="security-row">
+                <span>Rate limiting</span>
+                <strong>ENABLED</strong>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <h2>SYSTEM</h2>
+                <span class="badge">HEALTHY</span>
+            </div>
+
+            <div class="security-row">
+                <span>Server</span>
+                <strong id="serverStatus">ONLINE</strong>
+            </div>
+
+            <div class="security-row">
+                <span>Authentication service</span>
+                <strong>READY</strong>
+            </div>
+
+            <div class="security-row">
+                <span>Rotation service</span>
+                <strong>READY</strong>
+            </div>
         </section>
 
         <footer>
             LIFELESS PROXY · ADMINISTRATION PANEL
         </footer>
+
     </main>
 
-    <script>
-        function revealCredential() {
-            const credential = document.getElementById("credential");
-
-            if (credential.textContent.includes("•")) {
-                credential.textContent = "CREDENTIAL-HIDDEN";
-            } else {
-                credential.textContent = "••••••••••••••••••••••";
-            }
-        }
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
