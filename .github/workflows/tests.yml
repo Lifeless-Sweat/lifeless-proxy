@@ -9,14 +9,50 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check project structure
+      - name: Check README.md
         run: |
-          test -f README.md
-          test -f Dockerfile
-          test -f docker-compose.yml
-          test -f web/index.html
-          test -f web/style.css
-          test -f docs/security.md
+          test -f README.md || {
+            echo "ERROR: README.md is missing"
+            exit 1
+          }
+
+      - name: Check Dockerfile
+        run: |
+          test -f Dockerfile || {
+            echo "ERROR: Dockerfile is missing"
+            exit 1
+          }
+
+      - name: Check docker-compose.yml
+        run: |
+          test -f docker-compose.yml || {
+            echo "ERROR: docker-compose.yml is missing"
+            exit 1
+          }
+
+      - name: Check web/index.html
+        run: |
+          test -f web/index.html || {
+            echo "ERROR: web/index.html is missing"
+            exit 1
+          }
+
+      - name: Check web/style.css
+        run: |
+          test -f web/style.css || {
+            echo "ERROR: web/style.css is missing"
+            exit 1
+          }
+
+      - name: Check docs/security.md
+        run: |
+          test -f docs/security.md || {
+            echo "ERROR: docs/security.md is missing"
+            exit 1
+          }
+
+      - name: All checks passed
+        run: echo "Lifeless Proxy repository structure looks good."
